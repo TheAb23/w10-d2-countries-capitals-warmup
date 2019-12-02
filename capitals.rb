@@ -1,5 +1,6 @@
 # an array of countries hashes
 countries =[
+  
   {
     name: "Austria",
     capital: "Vienna"
@@ -100,3 +101,42 @@ countries =[
     name: "United States",
     capital: "Washington D.C."
 }]
+
+
+
+puts "Whats Your name?"
+input =  gets.chomp
+puts "Welcome "+input+" On Our Game"
+counter = 0
+trueanswer = 0
+falseanswer = 0
+newarr = countries.shuffle
+loop do 
+countries.length.times do |i|
+    puts "What is the capital of this country"
+    puts newarr[i][:name]
+    input1 = gets.chomp
+    if input1.upcase == newarr[i][:capital].upcase
+        puts "true next"
+        counter += 10
+        trueanswer += 1
+    else 
+        puts "false"
+        falseanswer += 1
+    end
+end
+puts "Play again ? (y/n)"
+    input2 = gets.chomp
+  break if input2 == "n"
+end
+puts "Your Score: #{counter}" 
+puts "True Answers: #{trueanswer}" 
+puts "False Answers: #{falseanswer} " 
+
+
+
+
+
+
+
+
