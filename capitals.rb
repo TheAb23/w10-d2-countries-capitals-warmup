@@ -106,15 +106,22 @@ countries =[
 
 puts "Whats Your name?"
 input =  gets.chomp
-puts "Welcome "+input+" On Our Game"
+puts "***************"
+puts "Who are you ?"
+input =  gets.chomp
+puts "Welcome "+input+" to the Game"
+puts "***************"
 counter = 0
 trueanswer = 0
 falseanswer = 0
 newarr = countries.shuffle
+tmparr = []
+count = 0
 loop do 
-countries.length.times do |i|
+    newarr.length.times do |i|
     puts "What is the capital of this country"
     puts newarr[i][:name]
+    puts newarr[i][:capital]
     input1 = gets.chomp
     if input1.upcase == newarr[i][:capital].upcase
         puts "true next"
@@ -123,20 +130,21 @@ countries.length.times do |i|
     else 
         puts "false"
         falseanswer += 1
+        tmparr.push(newarr[i])
     end
 end
-puts "Play again ? (y/n)"
+puts "***************"
+puts "do you wanna play agsin ? (y/n)"
+if count == 1 
+    newarr = countries.shuffle
+else
+    newarr = tmparr.shuffle
+    count = 1
+end
     input2 = gets.chomp
-  break if input2 == "n"
+    break if input2 == "n"
 end
 puts "Your Score: #{counter}" 
 puts "True Answers: #{trueanswer}" 
 puts "False Answers: #{falseanswer} " 
-
-
-
-
-
-
-
-
+puts "***************"
